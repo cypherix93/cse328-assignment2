@@ -2,54 +2,49 @@
 
 using namespace Drawing;
 
+void DrawFaceAtZ(float);
+
 void Drawing::DrawCube()
 {
     glBegin(GL_LINES);
 
-    //Front
+    // Front Face
     glNormal3f(0.0f, 0.0f, 1.0f);
+    DrawFaceAtZ(1.0f);
 
-    glVertex3f(-1.5f, -1.0f, 1.5f);
-    glVertex3f(1.5f, -1.0f, 1.5f);
-    glVertex3f(1.5f, 1.0f, 1.5f);
-    glVertex3f(-1.5f, 1.0f, 1.5f);
-    glVertex3f(-1.5f, -1.0f, 1.5f);
-    glVertex3f(1.5f, -1.0f, 1.5f);
-    glVertex3f(1.5f, 1.0f, 1.5f);
-    glVertex3f(-1.5f, 1.0f, 1.5f);
+    // Back Face
+    glNormal3f(0.0f, 0.0f, -1.0f);
+    DrawFaceAtZ(-1.0f);
 
-    //Right
-    //glNormal3f(1.0f, 0.0f, 0.0f);
-    ////glNormal3f(1.0f, 0.0f, -1.0f);
-    //glVertex3f(1.5f, -1.0f, -1.5f);
-    ////glNormal3f(1.0f, 0.0f, -1.0f);
-    //glVertex3f(1.5f, 1.0f, -1.5f);
-    ////glNormal3f(1.0f, 0.0f, 1.0f);
-    //glVertex3f(1.5f, 1.0f, 1.5f);
-    ////glNormal3f(1.0f, 0.0f, 1.0f);
-    //glVertex3f(1.5f, -1.0f, 1.5f);
+    // Right Arms
+    glNormal3f(1.0f, 0.0f, 0.0f);
 
-    ////Back
-    //glNormal3f(0.0f, 0.0f, -1.0f);
-    ////glNormal3f(-1.0f, 0.0f, -1.0f);
-    //glVertex3f(-1.5f, -1.0f, -1.5f);
-    ////glNormal3f(-1.0f, 0.0f, -1.0f);
-    //glVertex3f(-1.5f, 1.0f, -1.5f);
-    ////glNormal3f(1.0f, 0.0f, -1.0f);
-    //glVertex3f(1.5f, 1.0f, -1.5f);
-    ////glNormal3f(1.0f, 0.0f, -1.0f);
-    //glVertex3f(1.5f, -1.0f, -1.5f);
+    glNormal3f(1.0f, 0.0f, 0.0f);
+    glVertex3f(1.0f, -1.0f, -1.0f);
+    glVertex3f(1.0f, -1.0f, 1.0f);
+    glVertex3f(1.0f, 1.0f, 1.0f);
+    glVertex3f(1.0f, 1.0f, -1.0f);
 
-    ////Left
-    //glNormal3f(-1.0f, 0.0f, 0.0f);
-    ////glNormal3f(-1.0f, 0.0f, -1.0f);
-    //glVertex3f(-1.5f, -1.0f, -1.5f);
-    ////glNormal3f(-1.0f, 0.0f, 1.0f);
-    //glVertex3f(-1.5f, -1.0f, 1.5f);
-    ////glNormal3f(-1.0f, 0.0f, 1.0f);
-    //glVertex3f(-1.5f, 1.0f, 1.5f);
-    ////glNormal3f(-1.0f, 0.0f, -1.0f);
-    //glVertex3f(-1.5f, 1.0f, -1.5f);
+    // Left Arms
+    glNormal3f(-1.0f, 0.0f, 0.0f);
+
+    glVertex3f(-1.0f, -1.0f, -1.0f);
+    glVertex3f(-1.0f, -1.0f, 1.0f);
+    glVertex3f(-1.0f, 1.0f, 1.0f);
+    glVertex3f(-1.0f, 1.0f, -1.0f);
 
     glEnd();
+}
+
+void DrawFaceAtZ(float z)
+{
+    glVertex3f(-1.0f, -1.0f, z);
+    glVertex3f(1.0f, -1.0f, z);
+    glVertex3f(1.0f, 1.0f, z);
+    glVertex3f(-1.0f, 1.0f, z);
+
+    glVertex3f(-1.0f, -1.0f, z);
+    glVertex3f(-1.0f, 1.0f, z);
+    glVertex3f(1.0f, 1.0f, z);
+    glVertex3f(1.0f, -1.0f, z);
 }

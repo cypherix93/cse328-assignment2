@@ -1,15 +1,13 @@
 ﻿#include "Application.h"
 
-float _angle = 0.0;
+float _angleX = 0.0;
+float _angleY = 0.0;
 
 /* Event Handlers*/
 void InitHandler()
 {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_COLOR_MATERIAL);
-    glEnable(GL_LIGHTING); //Enable lighting
-    glEnable(GL_LIGHT0); //Enable light #0
-    glEnable(GL_LIGHT1); //Enable light #1
     glEnable(GL_NORMALIZE); //Automatically normalize normals
     glShadeModel(GL_SMOOTH); //Enable smooth shading
 
@@ -29,7 +27,8 @@ void DrawHandler()
     glLoadIdentity();
 
     glTranslatef(0.0f, 0.0f, -8.0f);    
-    glRotatef(_angle, 1.0f, 1.0f, 0.0f);
+    glRotatef(_angleX, 1.0f, 0.0f, 0.0f);
+    glRotatef(_angleY, 0.0f, 1.0f, 0.0f);
 
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 
@@ -41,15 +40,16 @@ void DrawHandler()
 // Called when a keyboard key is pressed
 void KeyboardButtonHandler(SDL_KeyboardEvent evt)
 {
+
 }
 
 //Called when the mouse button is pressed
 void MouseButtonHandler(SDL_MouseButtonEvent evt)
 {
-    _angle += 15.0f;
+    _angleX += 15.0f;
 
-    if (_angle > 360)
+    if (_angleX > 360)
     {
-        _angle -= 360;
+        _angleX -= 360;
     }
 }
