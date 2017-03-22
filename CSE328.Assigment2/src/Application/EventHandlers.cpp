@@ -40,16 +40,27 @@ void DrawHandler()
 // Called when a keyboard key is pressed
 void KeyboardButtonHandler(SDL_KeyboardEvent evt)
 {
+    auto delta = 15.0;
 
+    if (evt.keysym.sym == SDLK_UP)
+    {
+        _angleX -= delta;
+    }
+    if (evt.keysym.sym == SDLK_DOWN)
+    {
+        _angleX += delta;
+    }
+    if (evt.keysym.sym == SDLK_LEFT)
+    {
+        _angleY += delta;
+    }
+    if (evt.keysym.sym == SDLK_RIGHT)
+    {
+        _angleY -= delta;
+    }
 }
 
 //Called when the mouse button is pressed
 void MouseButtonHandler(SDL_MouseButtonEvent evt)
 {
-    _angleX += 15.0f;
-
-    if (_angleX > 360)
-    {
-        _angleX -= 360;
-    }
 }
