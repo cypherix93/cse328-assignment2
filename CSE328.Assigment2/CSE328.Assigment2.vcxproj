@@ -115,11 +115,13 @@
     <ClCompile Include="src\Application\EventHandlers.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\WindowManager\WindowManager.cpp" />
+    <ClCompile Include="src\StateManager\StateManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Drawing\Cube\CubeDrawer.h" />
     <ClInclude Include="src\Application\Application.h" />
     <ClInclude Include="src\WindowManager\WindowManager.h" />
+    <ClInclude Include="src\StateManager\StateManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

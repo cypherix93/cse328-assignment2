@@ -1,4 +1,7 @@
 ﻿#include "Application.h"
+#include "../StateManager/StateManager.h"
+
+StateManager stateManager;
 
 float _angleX = 0.0;
 float _angleY = 0.0;
@@ -16,6 +19,10 @@ void InitHandler()
     glLoadIdentity();
 
     gluPerspective(45.0, (double)WINDOW_WIDTH / (double)WINDOW_HEIGHT, 1.0, 200.0);
+
+    stateManager.State = Cube;
+    _angleX = 30.0;
+    _angleY = 30.0;
 }
 
 void DrawHandler()
@@ -52,11 +59,11 @@ void KeyboardButtonHandler(SDL_KeyboardEvent evt)
     }
     if (evt.keysym.sym == SDLK_LEFT)
     {
-        _angleY += delta;
+        _angleY -= delta;
     }
     if (evt.keysym.sym == SDLK_RIGHT)
     {
-        _angleY -= delta;
+        _angleY += delta;
     }
 }
 

@@ -30,6 +30,9 @@
     <ClCompile Include="src\Drawing\Cube\CubeDrawer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\StateManager\StateManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Application\Application.h">
@@ -39,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Drawing\Cube\CubeDrawer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\StateManager\StateManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
