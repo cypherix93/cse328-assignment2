@@ -113,13 +113,16 @@
     <ClCompile Include="src\Drawing\Cube\CubeDrawer.cpp" />
     <ClCompile Include="src\Application\Application.cpp" />
     <ClCompile Include="src\Application\EventHandlers.cpp" />
+    <ClCompile Include="src\Drawing\Tetrahedron\TetrahedronDrawer.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\WindowManager\WindowManager.cpp" />
     <ClCompile Include="src\StateManager\StateManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Application\EventHandlers.h" />
     <ClInclude Include="src\Drawing\Cube\CubeDrawer.h" />
     <ClInclude Include="src\Application\Application.h" />
+    <ClInclude Include="src\Drawing\Tetrahedron\TetrahedronDrawer.h" />
     <ClInclude Include="src\WindowManager\WindowManager.h" />
     <ClInclude Include="src\StateManager\StateManager.h" />
   </ItemGroup>

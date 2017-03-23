@@ -1,7 +1,9 @@
-﻿#include "Application.h"
+﻿#include "EventHandlers.h"
 #include "../StateManager/StateManager.h"
+#include "../Drawing/Cube/CubeDrawer.h"
+#include "../Drawing/Tetrahedron/TetrahedronDrawer.h"
 
-StateManager stateManager;
+ApplicationState state;
 
 float _angleX = 0.0;
 float _angleY = 0.0;
@@ -20,7 +22,7 @@ void InitHandler()
 
     gluPerspective(45.0, (double)WINDOW_WIDTH / (double)WINDOW_HEIGHT, 1.0, 200.0);
 
-    stateManager.State = Cube;
+    state = Cube;
     _angleX = 30.0;
     _angleY = 30.0;
 }
@@ -41,7 +43,17 @@ void DrawHandler()
 
     glLineWidth(4.0f);
 
-    DrawCube();
+    switch(state)
+    {
+        case Cube:
+            Drawing::DrawCube();
+            break;
+        case Tetrahedron:
+            Drawing::DrawTetrahedron();
+            break;
+        default:
+            break;
+    }
 }
 
 // Called when a keyboard key is pressed
@@ -64,6 +76,15 @@ void KeyboardButtonHandler(SDL_KeyboardEvent evt)
     if (evt.keysym.sym == SDLK_RIGHT)
     {
         _angleY += delta;
+    }
+    
+    if (evt.keysym.sym == SDLK_1)
+    {
+        state = Cube;
+    }
+    if (evt.keysym.sym == SDLK_2)
+    {
+        state = Tetrahedron;
     }
 }
 
