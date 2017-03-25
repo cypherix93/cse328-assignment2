@@ -2,7 +2,7 @@
 
 using namespace Drawing;
 
-void DrawFaceAtZ(float);
+static void DrawFaceAtZ(float);
 
 void Drawing::DrawCube()
 {

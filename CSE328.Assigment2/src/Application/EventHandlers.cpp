@@ -1,10 +1,10 @@
 ﻿#include "EventHandlers.h"
 
-ApplicationState state;
+static ApplicationState state;
 
-float _zoom = -12.0;
-float _angleX = 30.0;
-float _angleY = 30.0;
+static float _zoom = -12.0;
+static float _angleX = 30.0;
+static float _angleY = 30.0;
 
 /* Event Handlers*/
 void InitHandler()
