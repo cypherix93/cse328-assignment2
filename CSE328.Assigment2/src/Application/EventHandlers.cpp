@@ -1,7 +1,4 @@
 ﻿#include "EventHandlers.h"
-#include "../StateManager/StateManager.h"
-#include "../Drawing/Cube/CubeDrawer.h"
-#include "../Drawing/Tetrahedron/TetrahedronDrawer.h"
 
 ApplicationState state;
 
@@ -14,8 +11,8 @@ void InitHandler()
 {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_COLOR_MATERIAL);
-    glEnable(GL_NORMALIZE); //Automatically normalize normals
-    glShadeModel(GL_SMOOTH); //Enable smooth shading
+    glEnable(GL_NORMALIZE);
+    glShadeModel(GL_SMOOTH);
 
     glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
     glMatrixMode(GL_PROJECTION);
@@ -39,7 +36,7 @@ void DrawHandler()
     glTranslatef(0.0f, 0.0f, _zoom);
     glRotatef(_angleX, 1.0f, 0.0f, 0.0f);
     glRotatef(_angleY, 0.0f, 1.0f, 0.0f);
-
+    
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 
     glLineWidth(4.0f);
@@ -51,6 +48,9 @@ void DrawHandler()
             break;
         case Tetrahedron:
             Drawing::DrawTetrahedron();
+            break;
+        case Sphere:
+            Drawing::DrawSphere();
             break;
         default:
             break;

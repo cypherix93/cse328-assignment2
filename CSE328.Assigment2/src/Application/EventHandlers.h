@@ -1,6 +1,11 @@
 ﻿#pragma once
 #include "Application.h"
 
+#include "../StateManager/StateManager.h"
+#include "../Drawing/Cube/CubeDrawer.h"
+#include "../Drawing/Tetrahedron/TetrahedronDrawer.h"
+#include "../Drawing/Sphere/SphereDrawer.h"
+
 using namespace std;
 
 void InitHandler();
