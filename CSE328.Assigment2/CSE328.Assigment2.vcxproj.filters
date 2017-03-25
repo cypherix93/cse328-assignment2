@@ -36,6 +36,9 @@
     <ClCompile Include="src\Drawing\Tetrahedron\TetrahedronDrawer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Drawing\Sphere\SphereDrawer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\WindowManager\WindowManager.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Application\EventHandlers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Drawing\Sphere\SphereDrawer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

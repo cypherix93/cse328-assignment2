@@ -2,10 +2,12 @@
 
 using namespace Drawing;
 
-void DrawFaceAtZ(float);
+static void DrawFaceAtZ(float);
 
 void Drawing::DrawCube()
 {
+    glDisable(GL_LIGHTING);
+
     glBegin(GL_LINES);
 
     // Front Face
@@ -25,8 +27,6 @@ void Drawing::DrawCube()
     glVertex3f(1.0f, 1.0f, -1.0f);
 
     // Left Arms
-    glNormal3f(-1.0f, 0.0f, 0.0f);
-
     glVertex3f(-1.0f, -1.0f, -1.0f);
     glVertex3f(-1.0f, -1.0f, 1.0f);
     glVertex3f(-1.0f, 1.0f, 1.0f);
