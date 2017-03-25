@@ -20,17 +20,20 @@ static GLint tindices[20][3] = {
 
 void Drawing::DrawSphere()
 {
-    /*glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
-    glEnable(GL_LIGHT1);*/
+    glEnable(GL_LIGHT1);
 
     glBegin(GL_TRIANGLES);
     for (auto i = 0; i < 20; i++)
     {
-        glColor3f((i+2) * 0.04, 0.0, 0.0);
-
+        glNormal3fv(vdata[tindices[i][0]]);
         glVertex3fv(vdata[tindices[i][0]]);
+
+        glNormal3fv(vdata[tindices[i][1]]);
         glVertex3fv(vdata[tindices[i][1]]);
+
+        glNormal3fv(vdata[tindices[i][2]]);
         glVertex3fv(vdata[tindices[i][2]]);
     }
     glEnd();
