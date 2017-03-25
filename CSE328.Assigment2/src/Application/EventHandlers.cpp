@@ -2,9 +2,11 @@
 
 static ApplicationState state;
 
-static float _zoom = -12.0;
+static float _zoom = -10.0;
 static float _angleX = 30.0;
 static float _angleY = 30.0;
+
+static int _sphereDepth = 0;
 
 /* Event Handlers*/
 void InitHandler()
@@ -36,7 +38,7 @@ void DrawHandler()
     glTranslatef(0.0f, 0.0f, _zoom);
     glRotatef(_angleX, 1.0f, 0.0f, 0.0f);
     glRotatef(_angleY, 0.0f, 1.0f, 0.0f);
-    
+
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 
     glLineWidth(4.0f);
@@ -50,7 +52,7 @@ void DrawHandler()
             Drawing::DrawTetrahedron();
             break;
         case Sphere:
-            Drawing::DrawSphere();
+            Drawing::DrawSphere(_sphereDepth);
             break;
         default:
             break;
@@ -69,6 +71,8 @@ void KeyboardButtonHandler(SDL_KeyboardEvent evt)
 //Called when the mouse button is pressed
 void MouseButtonHandler(SDL_MouseButtonEvent evt)
 {
+    if (_sphereDepth < 3)
+        _sphereDepth++;
 }
 
 
@@ -107,7 +111,7 @@ void RotationHandler(SDL_Keycode key)
 void ZoomHandler(SDL_Keycode key)
 {
     auto delta = 1.0;
-    
+
     if (key == SDLK_KP_PLUS)
     {
         _zoom += delta;
