@@ -3,14 +3,17 @@
 ApplicationState state;
 
 float _zoom = -12.0;
-float _angleX = 0.0;
-float _angleY = 0.0;
+float _angleX = 30.0;
+float _angleY = 30.0;
 
 /* Event Handlers*/
 void InitHandler()
 {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_LIGHT1);
     glEnable(GL_NORMALIZE);
     glShadeModel(GL_SMOOTH);
 
@@ -21,8 +24,6 @@ void InitHandler()
     gluPerspective(45.0, (double)WINDOW_WIDTH / (double)WINDOW_HEIGHT, 1.0, 200.0);
 
     state = Cube;
-    _angleX = 30.0;
-    _angleY = 30.0;
 }
 
 void DrawHandler()
@@ -93,11 +94,21 @@ void RotationHandler(SDL_Keycode key)
     {
         _angleY += delta;
     }
+
+    if (_angleX < 0.0)
+        _angleX += 360.0;
+    if (_angleY < 0.0)
+        _angleY += 360.0;
+
+    if (_angleX >= 360.0)
+        _angleX -= 360.0;
+    if (_angleY >= 360.0)
+        _angleY -= 360.0;
 }
 void ZoomHandler(SDL_Keycode key)
 {
     auto delta = 1.0;
-
+    
     if (key == SDLK_KP_PLUS)
     {
         _zoom += delta;
@@ -106,6 +117,12 @@ void ZoomHandler(SDL_Keycode key)
     {
         _zoom -= delta;
     }
+
+    if (_zoom < -50.0)
+        _zoom = -50.0;
+
+    if (_zoom > -4.0)
+        _zoom = -4.0;
 }
 void StateHandler(SDL_Keycode key)
 {

@@ -6,6 +6,8 @@ void DrawFaceAtZ(float);
 
 void Drawing::DrawCube()
 {
+    glDisable(GL_LIGHTING);
+
     glBegin(GL_LINES);
 
     // Front Face
