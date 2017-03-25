@@ -25,8 +25,6 @@ void Drawing::DrawCube()
     glVertex3f(1.0f, 1.0f, -1.0f);
 
     // Left Arms
-    glNormal3f(-1.0f, 0.0f, 0.0f);
-
     glVertex3f(-1.0f, -1.0f, -1.0f);
     glVertex3f(-1.0f, -1.0f, 1.0f);
     glVertex3f(-1.0f, 1.0f, 1.0f);

@@ -4,8 +4,6 @@ using namespace Drawing;
 
 void Drawing::DrawTetrahedron()
 {
-    glBegin(GL_LINES);
-
     float basePoints[3][3] = {
         { -2.0f, 0.0f, 2.0f },
         { 2.0f, 0.0f, 2.0f },
@@ -13,6 +11,8 @@ void Drawing::DrawTetrahedron()
     };
 
     float apexPoint[3] = { 0.0f, 2.0f, 0.0f };
+
+    glBegin(GL_LINES);
 
     // Base
     glNormal3f(0.0f, 1.0f, 0.0f);

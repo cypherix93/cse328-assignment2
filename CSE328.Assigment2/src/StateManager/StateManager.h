@@ -3,7 +3,9 @@
 enum ApplicationState
 {
     Cube,
-    Tetrahedron
+    Tetrahedron,
+    Sphere,
+    Quadrics
 };
 
 class StateManager
