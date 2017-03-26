@@ -23,8 +23,7 @@ static array<array<float, 3>, 20> TRIANGLE_INDICES = { {
 
 void DrawGeneralEllipsoid(float rx, float ry, float rz, int depth = 0);
 
-static void NormalizeVector(float v[3]);
-static void NormalizedCrossProduct(float v1[3], float v2[3], float out[3]);
+static void Subdivide(float v1[3], float v2[3], float v3[3], float rx, float ry, float rz, int depth = 0);
 
+static void GetIntersection(float v[3], float rx, float ry, float rz);
 static void DrawTriangle(float v1[3], float v2[3], float v3[3]);
-static void Subdivide(float v1[3], float v2[3], float v3[3], int depth = 0);

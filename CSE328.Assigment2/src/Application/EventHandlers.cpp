@@ -2,7 +2,7 @@
 
 static ApplicationState state;
 
-static float _zoom = -10.0;
+static float _zoom = -8.0;
 static float _angleX = 30.0;
 static float _angleY = 30.0;
 
