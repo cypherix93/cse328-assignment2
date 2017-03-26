@@ -52,7 +52,7 @@ void DrawHandler()
             Drawing::DrawTetrahedron();
             break;
         case Sphere:
-            Drawing::DrawSphere(_sphereDepth);
+            Drawing::DrawSphere(1.0, _sphereDepth);
             break;
         default:
             break;
