@@ -5,7 +5,8 @@ enum ApplicationState
     Cube,
     Tetrahedron,
     Sphere,
-    Quadrics
+    Quadrics,
+    Ellipsoid
 };
 
 class StateManager

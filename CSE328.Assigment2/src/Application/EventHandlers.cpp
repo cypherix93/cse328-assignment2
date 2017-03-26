@@ -2,7 +2,7 @@
 
 static ApplicationState state;
 
-static float _zoom = -10.0;
+static float _zoom = -8.0;
 static float _angleX = 30.0;
 static float _angleY = 30.0;
 
@@ -52,7 +52,10 @@ void DrawHandler()
             Drawing::DrawTetrahedron();
             break;
         case Sphere:
-            Drawing::DrawSphere(_sphereDepth);
+            Drawing::DrawSphere(1.0, _sphereDepth);
+            break;
+        case Ellipsoid:
+            Drawing::DrawEllipsoid(2.0, 1.5, 1.0, _sphereDepth);
             break;
         default:
             break;
@@ -71,8 +74,19 @@ void KeyboardButtonHandler(SDL_KeyboardEvent evt)
 //Called when the mouse button is pressed
 void MouseButtonHandler(SDL_MouseButtonEvent evt)
 {
-    if (_sphereDepth < 3)
-        _sphereDepth++;
+    if (state == Sphere || state == Ellipsoid)
+    {
+        if (evt.button == SDL_BUTTON_LEFT)
+        {
+            if (_sphereDepth < 2)
+                _sphereDepth++;
+        }
+        if (evt.button == SDL_BUTTON_RIGHT)
+        {
+            if (_sphereDepth > 0)
+                _sphereDepth--;
+        }
+    }
 }
 
 
@@ -144,5 +158,9 @@ void StateHandler(SDL_Keycode key)
     if (key == SDLK_4)
     {
         state = Quadrics;
+    }
+    if (key == SDLK_5)
+    {
+        state = Ellipsoid;
     }
 }
