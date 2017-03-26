@@ -1,14 +1,16 @@
 #pragma once
 #include "GL/freeglut.h"
 #include <cmath>
+#include <vector>
+#include <SDL_stdinc.h>
 
 namespace Drawing
 {
     void DrawSphere(int depth = 0);
 }
 
-#define X 1.0
-#define Z 1.0
+#define X .525731112119133606
+#define Z .850650808352039932
 
 static float vdata[12][3] = {
     { -X, 0.0, Z },{ X, 0.0, Z },{ -X, 0.0, -Z },{ X, 0.0, -Z },

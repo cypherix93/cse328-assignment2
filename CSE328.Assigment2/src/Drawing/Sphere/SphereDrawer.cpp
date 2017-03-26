@@ -1,19 +1,83 @@
 #include "SphereDrawer.h"
 
 using namespace Drawing;
+using namespace std;
+
+vector<vector<float>> GetEllipsoidCoords(float rx, float ry = 0, float rz = 0)
+{
+    // If a regular sphere is asked for
+    if (ry == 0.0 || rz == 0.0)
+    {
+        ry = rx;
+        rz = rx;
+    }
+
+    float x, y, z;
+
+    vector<vector<float>> coords;
+
+    auto steps = 4;
+
+    float sStart, sEnd, sDel;
+    sStart = -M_PI / 2;
+    sEnd = M_PI / 2;
+    sDel = (sEnd - sStart) / steps;
+
+    float tStart, tEnd, tDel;
+    tStart = -M_PI;
+    tEnd = M_PI;
+    tDel = (tEnd - tStart) / steps;
+
+    for (auto s = sStart; s <= sEnd; s += sDel)
+    {
+        for (auto t = tStart; t <= tEnd; t += tDel)
+        {
+            x = rx * cos(s) * cos(t);
+            y = ry * cos(s) * sin(t);
+            z = rz * sin(s);
+
+            coords.push_back({ x, y, z });
+        }
+    }
+
+    return coords;
+}
 
 void Drawing::DrawSphere(int depth)
 {
     if (!glIsEnabled(GL_LIGHTING))
         glEnable(GL_LIGHTING);
 
-    glBegin(GL_TRIANGLES);
-    for (auto i = 0; i < 20; i++)
+    auto coords = GetSphereCoords(1.0);
+
+    /*glPointSize(4.0);
+    glBegin(GL_POINTS);
+
+    glColor3f(1.0, 0.0, 0.0);
+    for each (auto coord in coords)
     {
+        glVertex3fv(&coord[0]);
+    }
+
+    /*glColor3f(1.0, 1.0, 1.0);
+    for (auto i = 0; i < 12; i++)
+    {
+        glVertex3fv(vdata[i]);
+    }#1#
+
+    glEnd();*/
+
+    glBegin(GL_TRIANGLES);
+    for (auto i = 0; i < coords.size() - 2; i++)
+    {
+        auto v1 = coords[i];
+        auto v2 = coords[i + 1];
+        auto v3 = coords[i + 2];
+
         Subdivide(
-            vdata[tindices[i][0]],
-            vdata[tindices[i][1]],
-            vdata[tindices[i][2]],
+            &v1[0],
+            &v2[0],
+            &v3[0],
             depth
         );
     }
