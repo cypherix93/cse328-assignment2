@@ -74,15 +74,18 @@ void KeyboardButtonHandler(SDL_KeyboardEvent evt)
 //Called when the mouse button is pressed
 void MouseButtonHandler(SDL_MouseButtonEvent evt)
 {
-    if (evt.button == SDL_BUTTON_LEFT)
+    if (state == Sphere || state == Ellipsoid)
     {
-        if (_sphereDepth < 2)
-            _sphereDepth++;        
-    }
-    if (evt.button == SDL_BUTTON_RIGHT)
-    {
-        if (_sphereDepth > 0)
-            _sphereDepth--;
+        if (evt.button == SDL_BUTTON_LEFT)
+        {
+            if (_sphereDepth < 2)
+                _sphereDepth++;
+        }
+        if (evt.button == SDL_BUTTON_RIGHT)
+        {
+            if (_sphereDepth > 0)
+                _sphereDepth--;
+        }
     }
 }
 
