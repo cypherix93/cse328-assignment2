@@ -48,7 +48,7 @@ void Drawing::DrawSphere(int depth)
     if (!glIsEnabled(GL_LIGHTING))
         glEnable(GL_LIGHTING);
 
-    auto coords = GetSphereCoords(1.0);
+    auto coords = GetEllipsoidCoords(1.0);
 
     /*glPointSize(4.0);
     glBegin(GL_POINTS);
