@@ -4,7 +4,8 @@ using namespace Drawing;
 
 void Drawing::DrawSphere(int depth)
 {
-    glEnable(GL_LIGHTING);
+    if (!glIsEnabled(GL_LIGHTING))
+        glEnable(GL_LIGHTING);
 
     glBegin(GL_TRIANGLES);
     for (auto i = 0; i < 20; i++)

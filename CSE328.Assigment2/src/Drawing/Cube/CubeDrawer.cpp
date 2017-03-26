@@ -6,7 +6,8 @@ static void DrawFaceAtZ(float);
 
 void Drawing::DrawCube()
 {
-    glDisable(GL_LIGHTING);
+    if (glIsEnabled(GL_LIGHTING))
+        glDisable(GL_LIGHTING);
 
     glBegin(GL_LINES);
 

@@ -4,7 +4,8 @@ using namespace Drawing;
 
 void Drawing::DrawTetrahedron()
 {
-    glDisable(GL_LIGHTING);
+    if (glIsEnabled(GL_LIGHTING))
+        glDisable(GL_LIGHTING);
 
     float basePoints[3][3] = {
         { -2.0f, 0.0f, 2.0f },
@@ -28,7 +29,7 @@ void Drawing::DrawTetrahedron()
 
     // Top Lines
     glNormal3f(0.0f, 1.0f, 0.0f);
-    
+
     glVertex3fv(basePoints[0]);
     glVertex3fv(apexPoint);
 
