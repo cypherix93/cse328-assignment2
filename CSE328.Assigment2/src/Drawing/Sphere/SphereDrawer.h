@@ -1,6 +1,6 @@
 #pragma once
 #include "GL/freeglut.h"
-#include "../Ellipsoid/EllipsoidDrawer.h"
+#include "../../Helpers/EllipsoidHelper.h"
 
 namespace Drawing
 {

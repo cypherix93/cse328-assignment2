@@ -45,6 +45,9 @@
     <ClCompile Include="src\Helpers\EllipsoidHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Drawing\Quadrics\QuadricsDrawer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\WindowManager\WindowManager.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Helpers\EllipsoidHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Drawing\Quadrics\QuadricsDrawer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
