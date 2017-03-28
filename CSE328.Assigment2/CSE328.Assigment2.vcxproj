@@ -114,6 +114,7 @@
     <ClCompile Include="src\Application\Application.cpp" />
     <ClCompile Include="src\Application\EventHandlers.cpp" />
     <ClCompile Include="src\Drawing\Ellipsoid\EllipsoidDrawer.cpp" />
+    <ClCompile Include="src\Drawing\Quadrics\QuadricsDrawer.cpp" />
     <ClCompile Include="src\Drawing\Sphere\SphereDrawer.cpp" />
     <ClCompile Include="src\Drawing\Tetrahedron\TetrahedronDrawer.cpp" />
     <ClCompile Include="src\Helpers\EllipsoidHelper.cpp" />
@@ -126,6 +127,7 @@
     <ClInclude Include="src\Drawing\Cube\CubeDrawer.h" />
     <ClInclude Include="src\Application\Application.h" />
     <ClInclude Include="src\Drawing\Ellipsoid\EllipsoidDrawer.h" />
+    <ClInclude Include="src\Drawing\Quadrics\QuadricsDrawer.h" />
     <ClInclude Include="src\Drawing\Sphere\SphereDrawer.h" />
     <ClInclude Include="src\Drawing\Tetrahedron\TetrahedronDrawer.h" />
     <ClInclude Include="src\Helpers\EllipsoidHelper.h" />

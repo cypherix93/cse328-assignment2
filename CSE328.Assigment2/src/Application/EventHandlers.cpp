@@ -7,10 +7,24 @@ static float _angleX = 30.0;
 static float _angleY = 30.0;
 
 static int _sphereDepth = 0;
+static Quadric _quadricToDraw = Q_SPHERE;
 
 /* Event Handlers*/
 void InitHandler()
 {
+    float matAmbient[] = { 0.5, 0.5, 0.5, 1.0 };
+    float matSpecular[] = { 0.5, 0.5, 0.5, 1.0 };
+    float matShininess[] = { 20.0 };
+    float lightPosition[] = { -5.0, 5.0, 1.0, 1.0 };
+    float modelAmbient[] = { 0.5, 0.5, 0.5, 1.0 };
+
+    glMaterialfv(GL_FRONT, GL_AMBIENT, matAmbient);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, matSpecular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, matShininess);
+
+    glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, modelAmbient);
+
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_COLOR_MATERIAL);
     glEnable(GL_LIGHTING);
@@ -54,6 +68,9 @@ void DrawHandler()
         case Sphere:
             Drawing::DrawSphere(1.0, _sphereDepth);
             break;
+        case Quadrics:
+            Drawing::DrawQuadrics(_quadricToDraw);
+            break;
         case Ellipsoid:
             Drawing::DrawEllipsoid(2.0, 1.5, 1.0, _sphereDepth);
             break;
@@ -86,6 +103,25 @@ void MouseButtonHandler(SDL_MouseButtonEvent evt)
             if (_sphereDepth > 0)
                 _sphereDepth--;
         }
+    }
+    if (state == Quadrics)
+    {
+        int q = _quadricToDraw;
+
+        if (evt.button == SDL_BUTTON_LEFT)
+        {
+            q++;
+            if (q > 2)
+                q = 0;
+        }
+        if (evt.button == SDL_BUTTON_RIGHT)
+        {
+            q--;
+            if (q < 0)
+                q = 2;
+        }
+
+        _quadricToDraw = static_cast<Quadric>(q);
     }
 }
 

@@ -34,11 +34,21 @@
 - Increase the depth of approximation with `Left Mouse Button` (20 -> 80 -> 320).
 - Decrease the depth of approximation with `Right Mouse Button` (320 -> 80 -> 20).
 
+#### Part 4
+
+- A sphere should be displayed.
+- Use `Left Mouse Button` and `Right Mouse Button` to change the shape to display.
+- You should be able to see a sphere, a cylinder and a cone.
+
 #### Part 5
 
 - A 20 triangle approximation of an ellipsoid should be displayed.
 - Increase the depth of approximation with `Left Mouse Button` (20 -> 80 -> 320).
 - Decrease the depth of approximation with `Right Mouse Button` (320 -> 80 -> 20).
+
+#### Part 6
+
+- Not Implemented.
 
 ---
 

@@ -5,6 +5,8 @@
 #include "../Drawing/Cube/CubeDrawer.h"
 #include "../Drawing/Tetrahedron/TetrahedronDrawer.h"
 #include "../Drawing/Sphere/SphereDrawer.h"
+#include "../Drawing/Quadrics/QuadricsDrawer.h"
+#include "../Drawing/Ellipsoid/EllipsoidDrawer.h"
 
 using namespace std;
 
